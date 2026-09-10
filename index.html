@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Place For You ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #080711;
+  color: #f8eef7;
+  overflow-x: hidden;
+}
+
+/* Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(160, 80, 180, .16), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(220, 80, 150, .12), transparent 30%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: .6;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.7); }
+  to { opacity: .9; transform: scale(1.4); }
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 100;
+  background: rgba(8, 7, 17, .72);
+  backdrop-filter: blur(14px);
+}
+
+nav button {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: #ddd;
+  padding: 9px 13px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+nav button:hover,
+nav button.active {
+  background: rgba(220,120,190,.18);
+  border-color: rgba(240,160,220,.4);
+  color: white;
+}
+
+/* Pages */
+.page {
+  min-height: 100vh;
+  padding: 110px 22px 60px;
+  display: none;
+  max-width: 1000px;
+  margin: auto;
+  animation: pageIn .7s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Home */
+.home {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.small {
+  color: #c9a8c7;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(48px, 12vw, 100px);
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #fff, #e8b9df, #fff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  max-width: 550px;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #c9c1cb;
+  margin-bottom: 40px;
+}
+
+.main-btn {
+  border: 1px solid rgba(240,170,220,.45);
+  background: rgba(220,120,190,.12);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: .35s;
+}
+
+.main-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(220,100,190,.18);
+}
+
+/* Headings */
+.page-title {
+  text-align: center;
+  font-size: clamp(35px, 8vw, 65px);
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.page-intro {
+  text-align: center;
+  color: #aaa0ac;
+  margin: 0 auto 45px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.card {
+  min-height: 170px;
+  padding: 25px;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.07),
+    rgba(255,255,255,.025)
+  );
+  border: 1px solid rgba(255,255,255,.09);
+  cursor: pointer;
+  transition: .4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(230,150,210,.3);
+}
+
+.card h3 {
+  font-size: 21px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #aaa0ac;
+  line-height: 1.6;
+}
+
+.card .hidden-text {
+  display: none;
+}
+
+.card.open .hidden-text {
+  display: block;
+}
+
+.card.open .hint {
+  display: none;
+}
+
+/* Songs */
+.song-list {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.song {
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.song-number {
+  font-size: 13px;
+  color: #b88aae;
+}
+
+.song-info h3 {
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+
+.song-info p {
+  font-size: 14px;
+  color: #918894;
+}
+
+.words-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 35px 0 25px;
+}
+
+.quote {
+  padding: 25px;
+  margin: 15px 0;
+  border-left: 2px solid #c88bbb;
+  background: rgba(255,255,255,.035);
+  color: #d8cbd7;
+  font-size: 19px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* Letter */
+.letter {
+  max-width: 700px;
+  margin: auto;
+  padding: 35px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 25px;
+  line-height: 2;
+  color: #d2c7d0;
+  min-height: 300px;
+}
+
+.cursor {
+  border-right: 2px solid #e2afd8;
+  animation: blink .7s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.final-message {
+  display: none;
+  text-align: center;
+  margin-top: 35px;
+  font-size: 30px;
+  color: #f4d8ee;
+  animation: pop .8s ease;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #716875;
+  font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  nav {
+    gap: 4px;
+    padding: 12px 8px;
+  }
+
+  nav button {
+    font-size: 11px;
+    padding: 8px 9px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .letter {
+    padding: 23px;
+  }
+
+  .quote {
+    font-size: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<nav>
+  <button class="active" onclick="showPage('home', this)">Home</button>
+  <button onclick="showPage('little', this)">Little Things</button>
+  <button onclick="showPage('songs', this)">Songs</button>
+  <button onclick="showPage('letter', this)">Letter</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="home">
+
+    <div class="small">A little something</div>
+
+    <h1 class="gradient-text">
+      Hey, you. ❤️
+    </h1>
+
+    <p class="subtitle">
+      I made a little corner of the internet that belongs to us.
+      No photos. No big explanations. Just a few words that reminded me of you.
+    </p>
+
+    <button class="main-btn" onclick="showPage('little')">
+      Start the story →
+    </button>
+
+  </div>
+</section>
+
+<!-- LITTLE THINGS -->
+<section id="little" class="page">
+
+  <h2 class="page-title">The Little Things</h2>
+
+  <p class="page-intro">
+    Sometimes it's not the big things that stay with us.
+    It's the tiny moments we never planned for.
+  </p>
+
+  <div class="cards">
+
+    <div class="card" onclick="this.classList.toggle('open')">
+      <h3>Your smile</h3>
+      <p class="hint">Tap to open ✦</p>
+      <p class="hidden-text">
+        Somehow, it makes an ordinary moment feel a little better.
+      </p>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('open')">
+      <h3>Your random messages</h3>
+      <p class="hint">Tap to open ✦</p>
+      <p class="hidden-text">
+        The random conversations are often the ones I remember the most.
+      </p>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('open')">
+      <h3>Late-night conversations</h3>
+      <p class="hint">Tap to open ✦</p>
+      <p class="hidden-text">
+        Somehow time feels different when you're talking to someone you genuinely enjoy.
+      </p>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('open')">
+      <h3>The little things</h3>
+      <p class="hint">Tap to open ✦</p>
+      <p class="hidden-text">
+        Maybe you don't notice them, but those small things are part of what makes you, you.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SONGS -->
+<section id="songs" class="page">
+
+  <h2 class="page-title">Songs & Words</h2>
+
+  <p class="page-intro">
+    A few songs that carry a certain feeling — and a few words of my own.
+  </p>
+
+  <div class="song-list">
+
+    <div class="song">
+      <div class="song-number">01</div>
+      <div class="song-info">
+        <h3>Until I Found You</h3>
+        <p>Stephen Sanchez · A song that feels like finding someone special.</p>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-number">02</div>
+      <div class="song-info">
+        <h3>I Like Me Better</h3>
+        <p>Lauv · For that feeling of being happier around someone.</p>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-number">03</div>
+      <div class="song-info">
+        <h3>Perfect</h3>
+        <p>Ed Sheeran · A classic for a reason.</p>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-number">04</div>
+      <div class="song-info">
+        <h3>Those Eyes</h3>
+        <p>New West · For appreciating the little moments.</p>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-number">05</div>
+      <div class="song-info">
+        <h3>Yellow</h3>
+        <p>Coldplay · Simple, timeless, and warm.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h3 class="words-title">A Few Words</h3>
+
+  <div class="quote">
+    “Some people become a memory. You became a feeling.”
+  </div>
+
+  <div class="quote">
+    “If I could keep one moment forever, I'd probably choose one with you.”
+  </div>
+
+  <div class="quote">
+    “You make ordinary days feel a little less ordinary.”
+  </div>
+
+</section>
+
+<!-- LETTER -->
+<section id="letter" class="page">
+
+  <h2 class="page-title">One Last Thing...</h2>
+
+  <p class="page-intro">
+    Some things are easier to write than say.
+  </p>
+
+  <div class="letter">
+    <span id="typedText"></span><span class="cursor">&nbsp;</span>
+  </div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <button class="main-btn" onclick="showFinal()">
+      One last thing...
+    </button>
+  </div>
+
+  <div id="finalMessage" class="final-message">
+    I'm really glad I found you. ❤️
+  </div>
+
+  <div class="footer">
+    Made with a little time, a lot of thought, and good memories.
+  </div>
+
+</section>
+
+<script>
+
+/* Stars */
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+  const star = document.createElement("div");
+  star.className = "star";
+
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 3 + "s";
+
+  stars.appendChild(star);
+}
+
+
+/* Page navigation */
+function showPage(pageId, button) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById(pageId).classList.add("active");
+
+  document.querySelectorAll("nav button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  if (button) {
+    button.classList.add("active");
+  } else {
+    const buttons = document.querySelectorAll("nav button");
+
+    buttons.forEach(btn => {
+      if (btn.textContent.toLowerCase().includes(pageId === "little" ? "little" : pageId)) {
+        btn.classList.add("active");
+      }
+    });
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  if (pageId === "letter") {
+    startTyping();
+  }
+}
+
+
+/* Typewriter */
+const letterText =
+"I don't know if words are ever enough to explain what you mean to me. " +
+"But I wanted to make this little place for you — something simple, " +
+"something that reminds you that you are special to me.\\n\\n" +
+"Maybe someday we'll look back at this and smile.\\n\\n" +
+"Until then, just know that I'm really glad I found you. ❤️";
+
+let typingStarted = false;
+
+function startTyping() {
+
+  if (typingStarted) return;
+
+  typingStarted = true;
+
+  const element = document.getElementById("typedText");
+
+  let index = 0;
+
+  function type() {
+
+    if (index < letterText.length) {
+
+      if (letterText[index] === "\\n") {
+        element.innerHTML += "<br><br>";
+      } else {
+        element.innerHTML += letterText[index];
+      }
+
+      index++;
+
+      setTimeout(type, 25);
+    }
+  }
+
+  type();
+}
+
+
+/* Final surprise */
+function showFinal() {
+
+  const message = document.getElementById("finalMessage");
+
+  message.style.display = "block";
+
+  message.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+</script>
+
+</body>
+</html>
