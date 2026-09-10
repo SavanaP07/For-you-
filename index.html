@@ -3,69 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Savan × Sanu ❤️</title>
+<title>For Sanu ❤️</title>
 
 <style>
 * {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #16001d, #450d32);
-  color: white;
-  text-align: center;
-  min-height: 100vh;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
-.page {
+body {
+  font-family: Arial, sans-serif;
+  background: #18051c;
+  color: white;
+  text-align: center;
+}
+
+.screen {
   display: none;
   min-height: 100vh;
-  padding: 70px 22px;
-  justify-content: center;
+  padding: 50px 20px;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
-.active {
+.screen.show {
   display: flex;
 }
 
 .card {
-  max-width: 650px;
   width: 100%;
+  max-width: 600px;
   padding: 35px 25px;
-  border-radius: 25px;
-  background: rgba(255,255,255,0.09);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.35);
-}
-
-.heart {
-  font-size: 65px;
-  margin-bottom: 10px;
+  border-radius: 24px;
+  background: #2a102d;
+  border: 1px solid #542354;
 }
 
 h1 {
-  font-size: 48px;
-  margin: 10px 0;
+  font-size: 46px;
+  margin: 15px 0;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 30px;
+  margin: 15px 0;
 }
 
 p {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
-.small {
-  opacity: 0.75;
-  font-size: 15px;
+.heart {
+  font-size: 65px;
+}
+
+.line {
+  width: 70px;
+  height: 2px;
+  background: #ff6f91;
+  margin: 25px auto;
 }
 
 button {
-  border: none;
-  border
+  background: #ff5c83;
+  color: white;
+  border: 0;
+  padding: 14px 24px;
+  margin: 8px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.note {
+  color: #e9bfd0;
+  font-size: 15px;
+}
+
+.big {
+  font-size: 22px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 1 -->
+<div id="s1" class="screen show">
+
+  <div class="heart">❤️</div>
+
+  <p class="note">A little something for someone special</p>
+
+  <h1>Sanu</h1>
+
+  <div class="line"></div>
+
+  <p>
+    Some people enter your life...
+    <br>
+    and somehow become special.
+  </p>
+
+  <button onclick="go(2)">
+    ✨ Open Our Story
+  </button>
+
+</div>
+
+
+<!-- 2 -->
+<div id="s2" class="screen">
+
+  <div class="card">
+
+    <div class="heart">💗</div>
+
+    <h2>Our Story</h2>
+
+    <div class="line"></div>
+
+    <p>
+      Savan aur Sanu ki story shayad abhi
+      bahut chhoti hai...
+    </p>
+
+    <p>
+      Hum mile sirf kuch baar,
+      lekin kuch logon ko special banne ke liye
+      saalon ki zarurat nahi hoti.
+    </p>
+
+    <p class="big">
+      Kabhi-kabhi connection bas feel hota hai. ❤️
+    </p>
+
+  </div>
+
+  <div>
+    <button onclick="go(1)">← Previous</button>
+    <button onclick="go(3)">Next →</button>
+  </div>
+
+</div>
+
+
+<!-- 3 -->
+<div id="s3" class="screen">
+
+  <div class="card">
+
+    <div class="heart">🌙</div>
+
+    <h2>Little Memories</h2>
+
+    <div class="line"></div>
+
+    <p>
+      Har memory ke paas photo hona zaroori nahi.
+    </p>
+
+    <p>
+      Kuch moments bas yaadon mein rehte hain.
+      Kuch baatein smile de jaati hain.
+      Aur kuch log bina kisi reason ke
+      important ho jaate hain.
+    </p>
+
+    <p class="big">
+      Tum unhi special memories ka ek part ho. 💕
+    </p>
+
+  </div>
+
+  <div>
+    <button onclick="go(2)">← Previous</button>
+    <button onclick="go(4)">Next →</button>
+  </div>
+
+</div>
+
+
+<!-- 4 -->
+<div id="s4" class="screen">
+
+  <div class="card">
+
+    <div class="heart">🎵</div>
+
+    <h2>Our Song</h2>
+
+    <div class="line"></div>
+
+    <p>
+      Kuch songs sirf songs nahi hote.
+      Woh kisi special person ki yaad ban jaate hain.
+    </p>
+
+    <h2>Tu Chahiye ❤️</h2>
+
+    <p class="note">
+      Atif Aslam
+    </p>
+
+    <button onclick="song()">
+      ▶️ Play Song
+    </button>
+
+  </div>
+
+  <div>
+    <button onclick="go(3)">← Previous</button>
+    <button onclick="go(5)">Next →</button>
+  </div>
+
+</div>
+
+
+<!-- 5 -->
+<div id="s5" class="screen">
+
+  <div class="card">
+
+    <div class="heart">💌</div>
+
+    <h2>For You, Sanu</h2>
+
+    <div class="line"></div>
+
+    <p>
+      I don't know what the future holds,
+      but I'm genuinely happy that
+      you became a special part of my life.
+    </p>
+
+    <p>
+      Shayad hamari story abhi chhoti hai,
+      lekin mere liye ye meaningful hai.
+    </p>
+
+    <p class="big">
+      You are special. ❤️
+    </p>
+
+    <h2>— Savan</h2>
+
+  </div>
+
+  <button onclick="go(1)">
+    ❤️ Start Again
+  </button>
+
+</div>
+
+
+<script>
+
+function go(number) {
+
+  var screens = document.getElementsByClassName("screen");
+
+  for (var i = 0; i < screens.length; i++) {
+    screens[i].classList.remove("show");
+  }
+
+  document.getElementById("s" + number).classList.add("show");
+
+  window.scrollTo(0, 0);
+}
+
+function song() {
+
+  window.open(
+    "https://www.youtube.com/results?search_query=Tu+Chahiye+Atif+Aslam",
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
