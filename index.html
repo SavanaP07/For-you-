@@ -1,59 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Savan × Sanu ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savan × Sanu ❤️</title>
+</head>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  font-family:Georgia,serif;
-  background:#080a14;
+<body style="
+  margin:0;
+  background:#111;
   color:white;
-  min-height:100vh;
-  overflow-x:hidden;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background-image:
-    radial-gradient(#fff 1px,transparent 1px),
-    radial-gradient(#fff 1px,transparent 1px);
-  background-size:90px 90px,140px 140px;
-  background-position:10px 20px,50px 80px;
-  opacity:.16;
-}
-
-/* INTRO */
-#intro{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:radial-gradient(circle,#252642,#080a14 65%);
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  font-family:Arial,sans-serif;
   text-align:center;
-  transition:opacity 1s ease,visibility 1s ease;
-}
+">
 
-#intro.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
+  <div style="padding:120px 20px;">
+    <h1 style="font-size:45px;">Sanu ❤️</h1>
 
-.intro-content{
-  width:90%;
-  max-width:650px;
-}
+    <p style="font-size:20px;">
+      This little story is for you.
+    </p>
 
-.intro-line{
-  opacity:0;
-  transform:translateY(20px);
-  animation:appear
+    <button
+      onclick="document.getElementById('story').style.display='block'"
+      style="
+        margin-top:25px;
+        padding:15px 25px;
+        border:0;
+        border-radius:30px;
+        background:#ff5b80;
+        color:white;
+        font-size:17px;
+      ">
+      ✨ Open Our Story
+    </button>
+
+    <div id="story" style="display:none;margin-top:50px;">
+      <h2>Savan × Sanu ❤️</h2>
+      <p>Our story starts here...</p>
+    </div>
+  </div>
+
+</body>
+</html>
