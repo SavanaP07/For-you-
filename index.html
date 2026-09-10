@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Place For You ❤️</title>
+<title>Savan × Sanu ❤️</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -17,352 +19,312 @@ html {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
-  background: #080711;
-  color: #f8eef7;
+  min-height: 100vh;
+  color: #f8eefa;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(151, 67, 148, .20), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(220, 83, 150, .12), transparent 30%),
+    #080611;
+  font-family: Inter, sans-serif;
   overflow-x: hidden;
 }
 
-/* Background */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(160, 80, 180, .16), transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(220, 80, 150, .12), transparent 30%);
-  pointer-events: none;
-  z-index: -2;
-}
-
+/* Stars */
 .stars {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: -1;
   overflow: hidden;
 }
 
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
+  width: 3px;
+  height: 3px;
+  background: #fff;
   border-radius: 50%;
-  opacity: .6;
-  animation: twinkle 3s infinite alternate;
+  opacity: .7;
+  animation: twinkle 3s infinite ease-in-out;
 }
 
 @keyframes twinkle {
-  from { opacity: .15; transform: scale(.7); }
-  to { opacity: .9; transform: scale(1.4); }
+  0%, 100% { opacity: .25; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.4); }
 }
 
 /* Navigation */
 nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  padding: 18px 20px;
+  padding: 18px 15px;
   display: flex;
   justify-content: center;
   gap: 8px;
-  z-index: 100;
-  background: rgba(8, 7, 17, .72);
-  backdrop-filter: blur(14px);
+  z-index: 10;
+  background: rgba(8, 6, 17, .72);
+  backdrop-filter: blur(12px);
 }
 
 nav button {
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.05);
-  color: #ddd;
-  padding: 9px 13px;
+  border: 1px solid rgba(255, 177, 226, .25);
+  background: rgba(255,255,255,.04);
+  color: #eee3f0;
+  padding: 11px 17px;
   border-radius: 30px;
   cursor: pointer;
+  font-size: 14px;
   transition: .3s;
 }
 
 nav button:hover,
 nav button.active {
-  background: rgba(220,120,190,.18);
-  border-color: rgba(240,160,220,.4);
-  color: white;
+  background: linear-gradient(135deg, rgba(232, 116, 190, .25), rgba(128, 72, 168, .25));
+  border-color: rgba(255, 170, 225, .55);
+  transform: translateY(-2px);
 }
 
 /* Pages */
 .page {
   min-height: 100vh;
-  padding: 110px 22px 60px;
   display: none;
-  max-width: 1000px;
-  margin: auto;
-  animation: pageIn .7s ease;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 22px 60px;
 }
 
 .page.active {
-  display: block;
-}
-
-@keyframes pageIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Home */
-.home {
-  min-height: calc(100vh - 40px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
   text-align: center;
 }
 
-.small {
-  color: #c9a8c7;
-  letter-spacing: 4px;
+/* Home */
+.small-title {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 6px;
+  font-size: 18px;
+  color: #dcb9d8;
   text-transform: uppercase;
-  font-size: 12px;
   margin-bottom: 20px;
 }
 
 h1 {
-  font-size: clamp(48px, 12vw, 100px);
-  font-weight: normal;
-  line-height: 1;
-  margin-bottom: 25px;
-}
-
-.gradient-text {
-  background: linear-gradient(90deg, #fff, #e8b9df, #fff);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(58px, 13vw, 105px);
+  line-height: .9;
+  font-weight: 600;
+  background: linear-gradient(90deg, #fff, #f0a9dc, #fff);
   -webkit-background-clip: text;
   color: transparent;
+  margin-bottom: 28px;
+}
+
+.heart {
+  display: inline-block;
+  color: #ffb4e5;
+  animation: heartbeat 1.6s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.12); }
+  35% { transform: scale(1); }
 }
 
 .subtitle {
-  max-width: 550px;
-  font-size: 19px;
-  line-height: 1.7;
-  color: #c9c1cb;
-  margin-bottom: 40px;
+  max-width: 650px;
+  margin: auto;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(22px, 4vw, 30px);
+  line-height: 1.5;
+  color: #d8cbd8;
+}
+
+.highlight {
+  color: #f3abd9;
 }
 
 .main-btn {
-  border: 1px solid rgba(240,170,220,.45);
-  background: rgba(220,120,190,.12);
-  color: white;
-  padding: 15px 25px;
+  margin-top: 38px;
+  padding: 16px 28px;
   border-radius: 40px;
+  border: 1px solid rgba(255, 173, 223, .5);
+  background: linear-gradient(135deg, rgba(211, 81, 164, .25), rgba(91, 53, 127, .25));
+  color: white;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 15px;
-  transition: .35s;
+  transition: .3s;
 }
 
 .main-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 35px rgba(220,100,190,.18);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 35px rgba(219, 85, 173, .18);
 }
 
-/* Headings */
-.page-title {
-  text-align: center;
-  font-size: clamp(35px, 8vw, 65px);
-  font-weight: normal;
-  margin-bottom: 15px;
+/* Section heading */
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(45px, 8vw, 70px);
+  margin-bottom: 12px;
 }
 
-.page-intro {
-  text-align: center;
-  color: #aaa0ac;
-  margin: 0 auto 45px;
-  max-width: 600px;
-  line-height: 1.7;
+.section-subtitle {
+  color: #bdb0bf;
+  margin-bottom: 35px;
+  font-size: 16px;
 }
 
 /* Cards */
-.cards {
+.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 16px;
 }
 
 .card {
-  min-height: 170px;
-  padding: 25px;
+  padding: 27px 20px;
+  border: 1px solid rgba(255, 190, 230, .14);
+  background: rgba(255,255,255,.035);
   border-radius: 22px;
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,.07),
-    rgba(255,255,255,.025)
-  );
-  border: 1px solid rgba(255,255,255,.09);
-  cursor: pointer;
-  transition: .4s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transition: .35s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: rgba(230,150,210,.3);
+  border-color: rgba(255, 176, 223, .4);
+  background: rgba(255,255,255,.06);
+}
+
+.card .emoji {
+  font-size: 32px;
+  margin-bottom: 13px;
 }
 
 .card h3 {
-  font-size: 21px;
-  font-weight: normal;
-  margin-bottom: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  margin-bottom: 8px;
 }
 
 .card p {
-  color: #aaa0ac;
+  color: #bfb2c0;
   line-height: 1.6;
-}
-
-.card .hidden-text {
-  display: none;
-}
-
-.card.open .hidden-text {
-  display: block;
-}
-
-.card.open .hint {
-  display: none;
-}
-
-/* Songs */
-.song-list {
-  display: grid;
-  gap: 15px;
-  margin-bottom: 50px;
-}
-
-.song {
-  padding: 20px 22px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.045);
-  border: 1px solid rgba(255,255,255,.08);
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.song-number {
-  font-size: 13px;
-  color: #b88aae;
-}
-
-.song-info h3 {
-  font-weight: normal;
-  margin-bottom: 6px;
-}
-
-.song-info p {
   font-size: 14px;
-  color: #918894;
 }
 
-.words-title {
-  text-align: center;
-  font-size: 30px;
-  font-weight: normal;
-  margin: 35px 0 25px;
+/* Song */
+.song {
+  padding: 28px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(230, 104, 184, .13), rgba(93, 57, 130, .12));
+  border: 1px solid rgba(255, 175, 224, .2);
+  margin-bottom: 18px;
+}
+
+.song .music {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.song h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 31px;
+}
+
+.song p {
+  color: #bcaebe;
+  margin-top: 5px;
 }
 
 .quote {
-  padding: 25px;
-  margin: 15px 0;
-  border-left: 2px solid #c88bbb;
-  background: rgba(255,255,255,.035);
-  color: #d8cbd7;
-  font-size: 19px;
-  line-height: 1.7;
+  margin: 25px auto;
+  max-width: 650px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  line-height: 1.5;
+  color: #e6d6e5;
   font-style: italic;
 }
 
 /* Letter */
-.letter {
+.letter-box {
   max-width: 700px;
   margin: auto;
-  padding: 35px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.09);
+  padding: 35px 28px;
   border-radius: 25px;
-  line-height: 2;
-  color: #d2c7d0;
-  min-height: 300px;
+  border: 1px solid rgba(255, 179, 225, .18);
+  background: rgba(255,255,255,.035);
+  text-align: left;
 }
 
-.cursor {
-  border-right: 2px solid #e2afd8;
-  animation: blink .7s infinite;
+.letter-box p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  line-height: 1.7;
+  color: #e1d4df;
+  white-space: pre-line;
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+.signature {
+  margin-top: 25px;
+  text-align: right;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  color: #f0a9dc;
 }
 
-.final-message {
-  display: none;
-  text-align: center;
-  margin-top: 35px;
+/* Future */
+.future {
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.035);
+  border: 1px dashed rgba(255, 178, 225, .25);
+}
+
+.future h3 {
+  font-family: "Cormorant Garamond", serif;
   font-size: 30px;
-  color: #f4d8ee;
-  animation: pop .8s ease;
+  margin-bottom: 10px;
 }
 
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: scale(.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.footer {
-  text-align: center;
-  margin-top: 50px;
-  color: #716875;
-  font-size: 13px;
+.future p {
+  color: #bdb0bd;
+  line-height: 1.6;
 }
 
 /* Mobile */
 @media (max-width: 650px) {
   nav {
-    gap: 4px;
-    padding: 12px 8px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 14px 12px;
   }
 
   nav button {
-    font-size: 11px;
-    padding: 8px 9px;
+    white-space: nowrap;
   }
 
-  .cards {
+  .grid {
     grid-template-columns: 1fr;
   }
 
   .page {
-    padding-left: 17px;
-    padding-right: 17px;
+    padding-top: 95px;
   }
 
-  .letter {
-    padding: 23px;
+  .letter-box {
+    padding: 28px 20px;
   }
 
-  .quote {
-    font-size: 17px;
+  .letter-box p {
+    font-size: 21px;
   }
 }
 </style>
@@ -373,183 +335,164 @@ h1 {
 <div class="stars" id="stars"></div>
 
 <nav>
-  <button class="active" onclick="showPage('home', this)">Home</button>
-  <button onclick="showPage('little', this)">Little Things</button>
-  <button onclick="showPage('songs', this)">Songs</button>
-  <button onclick="showPage('letter', this)">Letter</button>
+  <button class="active" onclick="showPage('home')">Home</button>
+  <button onclick="showPage('little')">Our Story</button>
+  <button onclick="showPage('songs')">Our Song</button>
+  <button onclick="showPage('letter')">Letter</button>
 </nav>
 
 <!-- HOME -->
 <section id="home" class="page active">
-  <div class="home">
+  <div class="container">
 
-    <div class="small">A little something</div>
+    <div class="small-title">A little something for Sanu</div>
 
-    <h1 class="gradient-text">
-      Hey, you. ❤️
+    <h1>
+      Savan × Sanu <span class="heart">♥</span>
     </h1>
 
     <p class="subtitle">
-      I made a little corner of the internet that belongs to us.
-      No photos. No big explanations. Just a few words that reminded me of you.
+      We may not have a thousand memories yet,
+      but somehow you've already become
+      <span class="highlight">someone very special to me.</span>
     </p>
 
     <button class="main-btn" onclick="showPage('little')">
-      Start the story →
+      Start our story →
     </button>
 
   </div>
 </section>
 
-<!-- LITTLE THINGS -->
+<!-- OUR STORY -->
 <section id="little" class="page">
+  <div class="container">
 
-  <h2 class="page-title">The Little Things</h2>
+    <div class="small-title">Savan × Sanu</div>
 
-  <p class="page-intro">
-    Sometimes it's not the big things that stay with us.
-    It's the tiny moments we never planned for.
-  </p>
+    <h2 class="section-title">Just the beginning.</h2>
 
-  <div class="cards">
+    <p class="section-subtitle">
+      We have only met once or twice...
+      but that doesn't make what we feel any less real.
+    </p>
 
-    <div class="card" onclick="this.classList.toggle('open')">
-      <h3>Your smile</h3>
-      <p class="hint">Tap to open ✦</p>
-      <p class="hidden-text">
-        Somehow, it makes an ordinary moment feel a little better.
-      </p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="emoji">❤️</div>
+        <h3>Not many memories</h3>
+        <p>
+          We don't have a huge list of memories yet.
+          And honestly, that's okay.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🌙</div>
+        <h3>But something real</h3>
+        <p>
+          Even with so little time together,
+          we've managed to mean a lot to each other.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">✨</div>
+        <h3>The little things</h3>
+        <p>
+          Sometimes it isn't about how many times
+          you've met someone. It's about how they make you feel.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🫶</div>
+        <h3>More to come</h3>
+        <p>
+          Maybe this is just the first chapter.
+          There are still so many memories waiting for us.
+        </p>
+      </div>
+
     </div>
 
-    <div class="card" onclick="this.classList.toggle('open')">
-      <h3>Your random messages</h3>
-      <p class="hint">Tap to open ✦</p>
-      <p class="hidden-text">
-        The random conversations are often the ones I remember the most.
-      </p>
-    </div>
-
-    <div class="card" onclick="this.classList.toggle('open')">
-      <h3>Late-night conversations</h3>
-      <p class="hint">Tap to open ✦</p>
-      <p class="hidden-text">
-        Somehow time feels different when you're talking to someone you genuinely enjoy.
-      </p>
-    </div>
-
-    <div class="card" onclick="this.classList.toggle('open')">
-      <h3>The little things</h3>
-      <p class="hint">Tap to open ✦</p>
-      <p class="hidden-text">
-        Maybe you don't notice them, but those small things are part of what makes you, you.
+    <div class="future">
+      <h3>Our story is still being written...</h3>
+      <p>
+        One day we'll look back at this little website
+        and laugh about how few memories we had when it started.
       </p>
     </div>
 
   </div>
-
 </section>
 
 <!-- SONGS -->
 <section id="songs" class="page">
+  <div class="container">
 
-  <h2 class="page-title">Songs & Words</h2>
+    <div class="small-title">A song for you</div>
 
-  <p class="page-intro">
-    A few songs that carry a certain feeling — and a few words of my own.
-  </p>
-
-  <div class="song-list">
+    <h2 class="section-title">Tu Chahiye 🎵</h2>
 
     <div class="song">
-      <div class="song-number">01</div>
-      <div class="song-info">
-        <h3>Until I Found You</h3>
-        <p>Stephen Sanchez · A song that feels like finding someone special.</p>
-      </div>
+      <div class="music">🎧</div>
+      <h3>Tu Chahiye</h3>
+      <p>Atif Aslam · Bajrangi Bhaijaan</p>
     </div>
 
-    <div class="song">
-      <div class="song-number">02</div>
-      <div class="song-info">
-        <h3>I Like Me Better</h3>
-        <p>Lauv · For that feeling of being happier around someone.</p>
-      </div>
-    </div>
+    <p class="quote">
+      “Some people become a memory.
+      You became a feeling.”
+    </p>
 
-    <div class="song">
-      <div class="song-number">03</div>
-      <div class="song-info">
-        <h3>Perfect</h3>
-        <p>Ed Sheeran · A classic for a reason.</p>
-      </div>
-    </div>
+    <p class="quote">
+      “Maybe we haven't had many moments yet,
+      but I already look forward to the ones we haven't lived.”
+    </p>
 
-    <div class="song">
-      <div class="song-number">04</div>
-      <div class="song-info">
-        <h3>Those Eyes</h3>
-        <p>New West · For appreciating the little moments.</p>
-      </div>
-    </div>
-
-    <div class="song">
-      <div class="song-number">05</div>
-      <div class="song-info">
-        <h3>Yellow</h3>
-        <p>Coldplay · Simple, timeless, and warm.</p>
-      </div>
-    </div>
+    <p class="quote">
+      “The best part about our story?
+      We haven't even written most of it yet.”
+    </p>
 
   </div>
-
-  <h3 class="words-title">A Few Words</h3>
-
-  <div class="quote">
-    “Some people become a memory. You became a feeling.”
-  </div>
-
-  <div class="quote">
-    “If I could keep one moment forever, I'd probably choose one with you.”
-  </div>
-
-  <div class="quote">
-    “You make ordinary days feel a little less ordinary.”
-  </div>
-
 </section>
 
 <!-- LETTER -->
 <section id="letter" class="page">
+  <div class="container">
 
-  <h2 class="page-title">One Last Thing...</h2>
+    <div class="small-title">For Sanu, from Savan</div>
 
-  <p class="page-intro">
-    Some things are easier to write than say.
-  </p>
+    <h2 class="section-title">A little letter 💌</h2>
 
-  <div class="letter">
-    <span id="typedText"></span><span class="cursor">&nbsp;</span>
-  </div>
+    <div class="letter-box">
 
-  <div style="text-align:center; margin-top:30px;">
-    <button class="main-btn" onclick="showFinal()">
+      <p id="letterText"></p>
+
+      <div class="signature">
+        — Savan ❤️
+      </div>
+
+    </div>
+
+    <button class="main-btn" onclick="revealMessage()">
       One last thing...
     </button>
-  </div>
 
-  <div id="finalMessage" class="final-message">
-    I'm really glad I found you. ❤️
-  </div>
+    <p id="finalMessage"
+       style="display:none; margin-top:25px; font-family:'Cormorant Garamond',serif; font-size:28px; color:#f1a8dc;">
+      Sanu, I'm really glad I found you. ❤️
+    </p>
 
-  <div class="footer">
-    Made with a little time, a lot of thought, and good memories.
   </div>
-
 </section>
 
 <script>
 
-/* Stars */
+/* Create stars */
 const stars = document.getElementById("stars");
 
 for (let i = 0; i < 90; i++) {
@@ -558,14 +501,15 @@ for (let i = 0; i < 90; i++) {
 
   star.style.left = Math.random() * 100 + "%";
   star.style.top = Math.random() * 100 + "%";
-  star.style.animationDelay = Math.random() * 3 + "s";
+  star.style.animationDelay = Math.random() * 4 + "s";
+  star.style.animationDuration = (2 + Math.random() * 4) + "s";
 
   stars.appendChild(star);
 }
 
 
 /* Page navigation */
-function showPage(pageId, button) {
+function showPage(pageId) {
 
   document.querySelectorAll(".page").forEach(page => {
     page.classList.remove("active");
@@ -577,17 +521,12 @@ function showPage(pageId, button) {
     btn.classList.remove("active");
   });
 
-  if (button) {
-    button.classList.add("active");
-  } else {
-    const buttons = document.querySelectorAll("nav button");
+  const buttons = document.querySelectorAll("nav button");
 
-    buttons.forEach(btn => {
-      if (btn.textContent.toLowerCase().includes(pageId === "little" ? "little" : pageId)) {
-        btn.classList.add("active");
-      }
-    });
-  }
+  if (pageId === "home") buttons[0].classList.add("active");
+  if (pageId === "little") buttons[1].classList.add("active");
+  if (pageId === "songs") buttons[2].classList.add("active");
+  if (pageId === "letter") buttons[3].classList.add("active");
 
   window.scrollTo({
     top: 0,
@@ -595,42 +534,74 @@ function showPage(pageId, button) {
   });
 
   if (pageId === "letter") {
-    startTyping();
+    startLetter();
   }
 }
 
 
-/* Typewriter */
-const letterText =
-"I don't know if words are ever enough to explain what you mean to me. " +
-"But I wanted to make this little place for you — something simple, " +
-"something that reminds you that you are special to me.\\n\\n" +
-"Maybe someday we'll look back at this and smile.\\n\\n" +
-"Until then, just know that I'm really glad I found you. ❤️";
+/* Letter typewriter */
+let letterStarted = false;
 
-let typingStarted = false;
+function startLetter() {
 
-function startTyping() {
+  if (letterStarted) return;
 
-  if (typingStarted) return;
+  letterStarted = true;
 
-  typingStarted = true;
+  const text =
+`Dear Sanu,
 
-  const element = document.getElementById("typedText");
+I know we haven't met many times.
+Maybe only once or twice.
 
-  let index = 0;
+But sometimes you don't need years of memories
+to know that someone has become important to you.
+
+You became special to me in your own way.
+
+We may not have a hundred pictures,
+a thousand adventures,
+or a long list of memories yet.
+
+But that's what makes me smile.
+
+Because we still have so much ahead of us.
+
+So this isn't really a website about everything
+we have already done.
+
+It's about everything we haven't done yet.
+
+More conversations.
+More smiles.
+More moments.
+More memories.
+
+And hopefully, one day,
+we'll look back at this little page
+and realize how far we've come.
+
+Until then...
+
+I'm just happy that it's you.
+
+— Savan`;
+
+  const element = document.getElementById("letterText");
+
+  let i = 0;
 
   function type() {
 
-    if (index < letterText.length) {
+    if (i < text.length) {
 
-      if (letterText[index] === "\\n") {
-        element.innerHTML += "<br><br>";
+      if (text[i] === "\n") {
+        element.innerHTML += "<br>";
       } else {
-        element.innerHTML += letterText[index];
+        element.innerHTML += text[i];
       }
 
-      index++;
+      i++;
 
       setTimeout(type, 25);
     }
@@ -640,17 +611,23 @@ function startTyping() {
 }
 
 
-/* Final surprise */
-function showFinal() {
+/* Final reveal */
+function revealMessage() {
 
   const message = document.getElementById("finalMessage");
 
   message.style.display = "block";
 
-  message.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-  });
+  message.animate(
+    [
+      { opacity: 0, transform: "translateY(15px)" },
+      { opacity: 1, transform: "translateY(0)" }
+    ],
+    {
+      duration: 700,
+      easing: "ease-out"
+    }
+  );
 }
 
 </script>
