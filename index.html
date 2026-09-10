@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Savan × Sanu ❤️</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -19,37 +18,25 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  color: #f8eefa;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(151, 67, 148, .20), transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(220, 83, 150, .12), transparent 30%),
-    #080611;
-  font-family: Inter, sans-serif;
+  font-family: Georgia, serif;
+  background: #090b16;
+  color: #fff;
   overflow-x: hidden;
 }
 
 /* Stars */
-.stars {
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 80px 80px, 130px 130px;
+  background-position: 0 0, 40px 70px;
+  opacity: 0.18;
+  pointer-events: none;
   z-index: -1;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #fff;
-  border-radius: 50%;
-  opacity: .7;
-  animation: twinkle 3s infinite ease-in-out;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: .25; transform: scale(.8); }
-  50% { opacity: 1; transform: scale(1.4); }
 }
 
 /* Navigation */
@@ -58,273 +45,244 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 18px 15px;
+  padding: 16px 10px;
+  background: rgba(8, 10, 22, 0.9);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   gap: 8px;
-  z-index: 10;
-  background: rgba(8, 6, 17, .72);
-  backdrop-filter: blur(12px);
+  z-index: 1000;
+  flex-wrap: wrap;
 }
 
 nav button {
-  border: 1px solid rgba(255, 177, 226, .25);
-  background: rgba(255,255,255,.04);
-  color: #eee3f0;
-  padding: 11px 17px;
-  border-radius: 30px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 9px 14px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 nav button:hover,
 nav button.active {
-  background: linear-gradient(135deg, rgba(232, 116, 190, .25), rgba(128, 72, 168, .25));
-  border-color: rgba(255, 170, 225, .55);
-  transform: translateY(-2px);
+  background: #ff6f91;
+  border-color: #ff6f91;
 }
 
 /* Pages */
 .page {
   min-height: 100vh;
   display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 22px 60px;
+  padding: 110px 22px 90px;
+  max-width: 950px;
+  margin: auto;
+  animation: fadeIn 0.7s ease;
 }
 
 .page.active {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.container {
-  width: 100%;
-  max-width: 850px;
-  text-align: center;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Home */
-.small-title {
-  font-family: "Cormorant Garamond", serif;
-  letter-spacing: 6px;
-  font-size: 18px;
-  color: #dcb9d8;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(58px, 13vw, 105px);
-  line-height: .9;
-  font-weight: 600;
-  background: linear-gradient(90deg, #fff, #f0a9dc, #fff);
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-bottom: 28px;
+.hero {
+  text-align: center;
 }
 
 .heart {
-  display: inline-block;
-  color: #ffb4e5;
-  animation: heartbeat 1.6s infinite;
+  font-size: 65px;
+  animation: heartbeat 1.5s infinite;
+  margin-bottom: 15px;
 }
 
 @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  20% { transform: scale(1.12); }
-  35% { transform: scale(1); }
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+h1 {
+  font-size: clamp(42px, 9vw, 80px);
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: clamp(30px, 6vw, 48px);
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  color: #d9d9e5;
+  line-height: 1.8;
+  font-size: 17px;
 }
 
 .subtitle {
-  max-width: 650px;
-  margin: auto;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(22px, 4vw, 30px);
-  line-height: 1.5;
-  color: #d8cbd8;
-}
-
-.highlight {
-  color: #f3abd9;
-}
-
-.main-btn {
-  margin-top: 38px;
-  padding: 16px 28px;
-  border-radius: 40px;
-  border: 1px solid rgba(255, 173, 223, .5);
-  background: linear-gradient(135deg, rgba(211, 81, 164, .25), rgba(91, 53, 127, .25));
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.main-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 35px rgba(219, 85, 173, .18);
-}
-
-/* Section heading */
-.section-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(45px, 8vw, 70px);
-  margin-bottom: 12px;
-}
-
-.section-subtitle {
-  color: #bdb0bf;
-  margin-bottom: 35px;
-  font-size: 16px;
+  font-size: 20px;
+  color: #ffb3c6;
+  margin-bottom: 25px;
 }
 
 /* Cards */
-.grid {
+.cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 18px;
+  margin-top: 25px;
 }
 
 .card {
-  padding: 27px 20px;
-  border: 1px solid rgba(255, 190, 230, .14);
-  background: rgba(255,255,255,.035);
-  border-radius: 22px;
-  transition: .35s;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 176, 223, .4);
-  background: rgba(255,255,255,.06);
-}
-
-.card .emoji {
-  font-size: 32px;
-  margin-bottom: 13px;
-}
-
-.card h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 27px;
-  margin-bottom: 8px;
-}
-
-.card p {
-  color: #bfb2c0;
-  line-height: 1.6;
-  font-size: 14px;
+  background: rgba(255,111,145,0.12);
 }
 
 /* Song */
-.song {
-  padding: 28px;
+.song-box {
+  text-align: center;
+  padding: 35px 20px;
   border-radius: 25px;
-  background: linear-gradient(135deg, rgba(230, 104, 184, .13), rgba(93, 57, 130, .12));
-  border: 1px solid rgba(255, 175, 224, .2);
-  margin-bottom: 18px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
-.song .music {
-  font-size: 36px;
-  margin-bottom: 12px;
+.music-note {
+  font-size: 60px;
+  margin-bottom: 15px;
 }
 
-.song h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 31px;
+.song-title {
+  font-size: 30px;
+  color: #ff9fb5;
+  margin-bottom: 8px;
 }
 
-.song p {
-  color: #bcaebe;
-  margin-top: 5px;
+.song-info {
+  color: #aaaabd;
+  margin-bottom: 25px;
 }
 
-.quote {
-  margin: 25px auto;
-  max-width: 650px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 25px;
-  line-height: 1.5;
-  color: #e6d6e5;
-  font-style: italic;
+.play-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #ff557d;
+  padding: 13px 25px;
+  border-radius: 30px;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  background: #ff3d6b;
 }
 
 /* Letter */
-.letter-box {
-  max-width: 700px;
-  margin: auto;
-  padding: 35px 28px;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 179, 225, .18);
-  background: rgba(255,255,255,.035);
-  text-align: left;
+.letter {
+  background: rgba(255,255,255,0.06);
+  border-radius: 22px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.12);
+  min-height: 250px;
 }
 
-.letter-box p {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 23px;
-  line-height: 1.7;
-  color: #e1d4df;
+#typedText {
   white-space: pre-line;
 }
 
-.signature {
-  margin-top: 25px;
-  text-align: right;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 27px;
-  color: #f0a9dc;
+/* Page navigation */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 45px;
 }
 
-/* Future */
-.future {
-  margin-top: 25px;
-  padding: 25px;
-  border-radius: 22px;
-  background: rgba(255,255,255,.035);
-  border: 1px dashed rgba(255, 178, 225, .25);
+.page-btn {
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
-.future h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-  margin-bottom: 10px;
+.page-btn:hover {
+  background: #ff557d;
+  transform: translateY(-2px);
 }
 
-.future p {
-  color: #bdb0bd;
-  line-height: 1.6;
+/* Footer */
+footer {
+  text-align: center;
+  color: #77788a;
+  margin-top: 30px;
+  font-size: 14px;
 }
 
 /* Mobile */
 @media (max-width: 650px) {
   nav {
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 14px 12px;
+    gap: 5px;
   }
 
   nav button {
-    white-space: nowrap;
+    padding: 7px 10px;
+    font-size: 12px;
   }
 
-  .grid {
+  .cards {
     grid-template-columns: 1fr;
   }
 
   .page {
-    padding-top: 95px;
+    padding-left: 17px;
+    padding-right: 17px;
   }
 
-  .letter-box {
-    padding: 28px 20px;
+  .page-nav {
+    margin-top: 30px;
   }
 
-  .letter-box p {
-    font-size: 21px;
+  .page-btn {
+    padding: 11px 15px;
+    font-size: 13px;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
 </style>
@@ -332,215 +290,244 @@ h1 {
 
 <body>
 
-<div class="stars" id="stars"></div>
-
+<!-- Navigation -->
 <nav>
-  <button class="active" onclick="showPage('home')">Home</button>
-  <button onclick="showPage('little')">Our Story</button>
-  <button onclick="showPage('songs')">Our Song</button>
-  <button onclick="showPage('letter')">Letter</button>
+  <button onclick="showPage(0)" id="nav0">Home</button>
+  <button onclick="showPage(1)" id="nav1">Our Story</button>
+  <button onclick="showPage(2)" id="nav2">Our Song</button>
+  <button onclick="showPage(3)" id="nav3">Letter</button>
 </nav>
 
-<!-- HOME -->
-<section id="home" class="page active">
-  <div class="container">
 
-    <div class="small-title">A little something for Sanu</div>
+<!-- PAGE 1 -->
+<section class="page active">
 
-    <h1>
-      Savan × Sanu <span class="heart">♥</span>
-    </h1>
+  <div class="hero">
 
-    <p class="subtitle">
-      We may not have a thousand memories yet,
-      but somehow you've already become
-      <span class="highlight">someone very special to me.</span>
-    </p>
+    <div class="heart">❤️</div>
 
-    <button class="main-btn" onclick="showPage('little')">
-      Start our story →
-    </button>
+    <h1>Savan × Sanu</h1>
 
-  </div>
-</section>
-
-<!-- OUR STORY -->
-<section id="little" class="page">
-  <div class="container">
-
-    <div class="small-title">Savan × Sanu</div>
-
-    <h2 class="section-title">Just the beginning.</h2>
-
-    <p class="section-subtitle">
-      We have only met once or twice...
-      but that doesn't make what we feel any less real.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="emoji">❤️</div>
-        <h3>Not many memories</h3>
-        <p>
-          We don't have a huge list of memories yet.
-          And honestly, that's okay.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="emoji">🌙</div>
-        <h3>But something real</h3>
-        <p>
-          Even with so little time together,
-          we've managed to mean a lot to each other.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="emoji">✨</div>
-        <h3>The little things</h3>
-        <p>
-          Sometimes it isn't about how many times
-          you've met someone. It's about how they make you feel.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="emoji">🫶</div>
-        <h3>More to come</h3>
-        <p>
-          Maybe this is just the first chapter.
-          There are still so many memories waiting for us.
-        </p>
-      </div>
-
+    <div class="subtitle">
+      Some stories don't need many memories.
     </div>
 
-    <div class="future">
-      <h3>Our story is still being written...</h3>
+    <p>
+      Maybe we haven't met many times.<br>
+      Maybe we don't have hundreds of memories yet.<br><br>
+
+      But sometimes, a person can become special
+      without needing years of memories.
+    </p>
+
+    <br>
+
+    <p>
+      This little website is just a small place
+      for something that means a lot to Savan.
+    </p>
+
+    <div class="page-nav">
+      <span></span>
+      <button class="page-btn" onclick="showPage(1)">
+        Next → Our Story
+      </button>
+    </div>
+
+    <footer>
+      Made with ❤️ by Savan
+    </footer>
+
+  </div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page">
+
+  <h2>Our Story ✨</h2>
+
+  <p>
+    We may not have a huge collection of memories yet,
+    but that doesn't make what we have any less special.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>🌙 The Beginning</h3>
       <p>
-        One day we'll look back at this little website
-        and laugh about how few memories we had when it started.
+        We met only a few times, but somehow
+        those moments stayed important.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💗 Something Real</h3>
+      <p>
+        Sometimes you don't need a long story
+        to know that someone matters to you.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🌸 Little Things</h3>
+      <p>
+        The smallest conversations and little moments
+        can become the things you remember most.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>⭐ More To Come</h3>
+      <p>
+        Maybe the best part is that our story
+        still has so many pages left to write.
       </p>
     </div>
 
   </div>
-</section>
 
-<!-- SONGS -->
-<section id="songs" class="page">
-  <div class="container">
-
-    <div class="small-title">A song for you</div>
-
-    <h2 class="section-title">Tu Chahiye 🎵</h2>
-
-    <div class="song">
-      <div class="music">🎧</div>
-      <h3>Tu Chahiye</h3>
-      <p>Atif Aslam · Bajrangi Bhaijaan</p>
-    </div>
-
-    <p class="quote">
-      “Some people become a memory.
-      You became a feeling.”
-    </p>
-
-    <p class="quote">
-      “Maybe we haven't had many moments yet,
-      but I already look forward to the ones we haven't lived.”
-    </p>
-
-    <p class="quote">
-      “The best part about our story?
-      We haven't even written most of it yet.”
-    </p>
-
-  </div>
-</section>
-
-<!-- LETTER -->
-<section id="letter" class="page">
-  <div class="container">
-
-    <div class="small-title">For Sanu, from Savan</div>
-
-    <h2 class="section-title">A little letter 💌</h2>
-
-    <div class="letter-box">
-
-      <p id="letterText"></p>
-
-      <div class="signature">
-        — Savan ❤️
-      </div>
-
-    </div>
-
-    <button class="main-btn" onclick="revealMessage()">
-      One last thing...
+  <div class="page-nav">
+    <button class="page-btn" onclick="showPage(0)">
+      ← Home
     </button>
 
-    <p id="finalMessage"
-       style="display:none; margin-top:25px; font-family:'Cormorant Garamond',serif; font-size:28px; color:#f1a8dc;">
-      Sanu, I'm really glad I found you. ❤️
+    <button class="page-btn" onclick="showPage(2)">
+      Our Song →
+    </button>
+  </div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page">
+
+  <h2>Our Song 🎵</h2>
+
+  <div class="song-box">
+
+    <div class="music-note">🎶</div>
+
+    <div class="song-title">
+      Tu Chahiye
+    </div>
+
+    <div class="song-info">
+      Atif Aslam · Bajrangi Bhaijaan
+    </div>
+
+    <p>
+      Some songs just feel a little more special
+      when they remind you of someone.
     </p>
 
+    <br>
+
+    <a
+      class="play-btn"
+      href="https://www.youtube.com/results?search_query=Tu+Chahiye+Atif+Aslam"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      ▶ Play Song
+    </a>
+
   </div>
+
+  <br>
+
+  <p style="text-align:center;">
+    For Sanu ❤️
+  </p>
+
+  <div class="page-nav">
+    <button class="page-btn" onclick="showPage(1)">
+      ← Our Story
+    </button>
+
+    <button class="page-btn" onclick="showPage(3)">
+      Letter →
+    </button>
+  </div>
+
 </section>
+
+
+<!-- PAGE 4 -->
+<section class="page">
+
+  <h2>A Little Letter 💌</h2>
+
+  <div class="letter">
+    <p id="typedText"></p>
+  </div>
+
+  <div class="page-nav">
+    <button class="page-btn" onclick="showPage(2)">
+      ← Our Song
+    </button>
+
+    <button class="page-btn" onclick="showPage(0)">
+      Back Home ❤️
+    </button>
+  </div>
+
+</section>
+
 
 <script>
 
-/* Create stars */
-const stars = document.getElementById("stars");
+/* Page changing */
+const pages = document.querySelectorAll(".page");
+const navButtons = document.querySelectorAll("nav button");
 
-for (let i = 0; i < 90; i++) {
-  const star = document.createElement("div");
-  star.className = "star";
+function showPage(number) {
 
-  star.style.left = Math.random() * 100 + "%";
-  star.style.top = Math.random() * 100 + "%";
-  star.style.animationDelay = Math.random() * 4 + "s";
-  star.style.animationDuration = (2 + Math.random() * 4) + "s";
-
-  stars.appendChild(star);
-}
-
-
-/* Page navigation */
-function showPage(pageId) {
-
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
+  pages.forEach((page, index) => {
+    page.classList.toggle("active", index === number);
   });
 
-  document.getElementById(pageId).classList.add("active");
-
-  document.querySelectorAll("nav button").forEach(btn => {
-    btn.classList.remove("active");
+  navButtons.forEach((button, index) => {
+    button.classList.toggle("active", index === number);
   });
-
-  const buttons = document.querySelectorAll("nav button");
-
-  if (pageId === "home") buttons[0].classList.add("active");
-  if (pageId === "little") buttons[1].classList.add("active");
-  if (pageId === "songs") buttons[2].classList.add("active");
-  if (pageId === "letter") buttons[3].classList.add("active");
 
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
 
-  if (pageId === "letter") {
+  if (number === 3) {
     startLetter();
   }
 }
 
 
-/* Letter typewriter */
+/* Letter typing animation */
 let letterStarted = false;
+
+const letterText =
+`Dear Sanu ❤️
+
+I don't know if I have enough memories to fill a whole book yet.
+
+But I know that some people don't need years
+to become important.
+
+Even though we have met only a few times,
+you have become someone really special to me.
+
+I hope we get to make many more memories,
+have many more conversations,
+and experience many more little moments together.
+
+This website is just a tiny way of saying:
+
+You matter to me. ❤️
+
+— Savan`;
 
 function startLetter() {
 
@@ -548,62 +535,18 @@ function startLetter() {
 
   letterStarted = true;
 
-  const text =
-`Dear Sanu,
-
-I know we haven't met many times.
-Maybe only once or twice.
-
-But sometimes you don't need years of memories
-to know that someone has become important to you.
-
-You became special to me in your own way.
-
-We may not have a hundred pictures,
-a thousand adventures,
-or a long list of memories yet.
-
-But that's what makes me smile.
-
-Because we still have so much ahead of us.
-
-So this isn't really a website about everything
-we have already done.
-
-It's about everything we haven't done yet.
-
-More conversations.
-More smiles.
-More moments.
-More memories.
-
-And hopefully, one day,
-we'll look back at this little page
-and realize how far we've come.
-
-Until then...
-
-I'm just happy that it's you.
-
-— Savan`;
-
-  const element = document.getElementById("letterText");
-
+  const element = document.getElementById("typedText");
   let i = 0;
 
   function type() {
 
-    if (i < text.length) {
+    if (i < letterText.length) {
 
-      if (text[i] === "\n") {
-        element.innerHTML += "<br>";
-      } else {
-        element.innerHTML += text[i];
-      }
-
+      element.textContent += letterText.charAt(i);
       i++;
 
-      setTimeout(type, 25);
+      setTimeout(type, 28);
+
     }
   }
 
@@ -611,24 +554,8 @@ I'm just happy that it's you.
 }
 
 
-/* Final reveal */
-function revealMessage() {
-
-  const message = document.getElementById("finalMessage");
-
-  message.style.display = "block";
-
-  message.animate(
-    [
-      { opacity: 0, transform: "translateY(15px)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ],
-    {
-      duration: 700,
-      easing: "ease-out"
-    }
-  );
-}
+/* Start with Home */
+showPage(0);
 
 </script>
 
