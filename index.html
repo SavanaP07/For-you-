@@ -1,234 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Savan × Sanu ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #120014, #3b0828);
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-    }
+<title>Savan × Sanu ❤️</title>
 
-    .page {
-      display: none;
-      min-height: 100vh;
-      box-sizing: border-box;
-      padding: 80px 25px;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    .active {
-      display: flex;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #16001d, #450d32);
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+}
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 70px 22px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    h2 {
-      font-size: 32px;
-    }
+.active {
+  display: flex;
+}
 
-    p {
-      font-size: 19px;
-      line-height: 1.7;
-      max-width: 600px;
-    }
+.card {
+  max-width: 650px;
+  width: 100%;
+  padding: 35px 25px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.09);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+}
 
-    button {
-      margin: 12px;
-      padding: 14px 25px;
-      border: none;
-      border-radius: 30px;
-      background: #ff5b80;
-      color: white;
-      font-size: 17px;
-      cursor: pointer;
-    }
+.heart {
+  font-size: 65px;
+  margin-bottom: 10px;
+}
 
-    button:hover {
-      background: #ff7897;
-    }
+h1 {
+  font-size: 48px;
+  margin: 10px 0;
+}
 
-    .heart {
-      font-size: 65px;
-      margin: 15px;
-    }
+h2 {
+  font-size: 32px;
+}
 
-    .box {
-      background: rgba(255,255,255,0.08);
-      padding: 25px;
-      border-radius: 20px;
-      max-width: 650px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
-  </style>
-</head>
+p {
+  font-size: 18px;
+  line-height: 1.8;
+}
 
-<body>
+.small {
+  opacity: 0.75;
+  font-size: 15px;
+}
 
-  <!-- PAGE 1 -->
-  <section id="page1" class="page active">
-    <div class="heart">❤️</div>
-
-    <h1>Sanu</h1>
-
-    <p>
-      Some people enter your life...
-      <br>
-      and somehow become really special.
-    </p>
-
-    <button onclick="showPage(2)">
-      ✨ Open Our Story
-    </button>
-  </section>
-
-
-  <!-- PAGE 2 -->
-  <section id="page2" class="page">
-    <div class="box">
-      <div class="heart">💗</div>
-
-      <h2>Our Story</h2>
-
-      <p>
-        Savan aur Sanu ki story shayad bahut lambi nahi hai,
-        lekin mere liye ye bahut special hai.
-      </p>
-
-      <p>
-        Hum mile sirf kuch baar...
-        par kabhi-kabhi kisi ko special banne ke liye
-        bahut zyada time ki zarurat nahi hoti.
-      </p>
-    </div>
-
-    <div>
-      <button onclick="showPage(1)">← Previous</button>
-      <button onclick="showPage(3)">Next →</button>
-    </div>
-  </section>
-
-
-  <!-- PAGE 3 -->
-  <section id="page3" class="page">
-    <div class="box">
-      <div class="heart">🌸</div>
-
-      <h2>Little Memories</h2>
-
-      <p>
-        Har memory perfect photo nahi hoti.
-        Kuch memories bas dil mein reh jaati hain.
-      </p>
-
-      <p>
-        Chhote moments, thodi si baatein,
-        aur woh feeling ki koi hai jo genuinely special hai.
-      </p>
-
-      <p>
-        ❤️ Those little moments matter.
-      </p>
-    </div>
-
-    <div>
-      <button onclick="showPage(2)">← Previous</button>
-      <button onclick="showPage(4)">Next →</button>
-    </div>
-  </section>
-
-
-  <!-- PAGE 4 -->
-  <section id="page4" class="page">
-    <div class="box">
-      <div class="heart">🎵</div>
-
-      <h2>Our Song</h2>
-
-      <p>
-        Kuch songs bas songs nahi hote...
-        woh kisi special person ki yaad ban jaate hain.
-      </p>
-
-      <h2>Tu Chahiye ❤️</h2>
-
-      <p>
-        Atif Aslam
-      </p>
-
-      <button onclick="openSong()">
-        ▶️ Play Song
-      </button>
-    </div>
-
-    <div>
-      <button onclick="showPage(3)">← Previous</button>
-      <button onclick="showPage(5)">Next →</button>
-    </div>
-  </section>
-
-
-  <!-- PAGE 5 -->
-  <section id="page5" class="page">
-    <div class="heart">💌</div>
-
-    <div class="box">
-      <h2>For You, Sanu</h2>
-
-      <p>
-        I don't know what the future holds,
-        but I'm really grateful that you became
-        a special part of my life.
-      </p>
-
-      <p>
-        Bas itna kehna hai...
-        <br><br>
-        You are special. ❤️
-      </p>
-
-      <h2>— Savan</h2>
-    </div>
-
-    <button onclick="showPage(1)">
-      ↻ Start Again
-    </button>
-
-    <button onclick="showPage(4)">
-      🎵 Our Song
-    </button>
-  </section>
-
-
-  <script>
-    function showPage(number) {
-      document.querySelectorAll(".page").forEach(function(page) {
-        page.classList.remove("active");
-      });
-
-      document.getElementById("page" + number).classList.add("active");
-
-      window.scrollTo(0, 0);
-    }
-
-    function openSong() {
-      window.open(
-        "https://www.youtube.com/results?search_query=Tu+Chahiye+Atif+Aslam",
-        "_blank"
-      );
-    }
-  </script>
-
-</body>
-</html>
+button {
+  border: none;
+  border
